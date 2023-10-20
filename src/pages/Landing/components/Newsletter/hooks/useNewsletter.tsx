@@ -11,10 +11,12 @@ const useNewsletter = () => {
         if (!import.meta.env.PROD) return true
 
         const payload = { ...(await getGeo()), email, user_agent: navigator.userAgent }
-        const response = await axios.post(url, payload, {
-            headers: { 'Content-Type': 'application/json' },
-        })
-        return response.status == 201
+        return await axios
+            .post(url, payload, {
+                headers: { 'Content-Type': 'application/json' },
+            })
+            .then(() => true)
+            .catch(() => false)
     }
 
     return { signUp }
