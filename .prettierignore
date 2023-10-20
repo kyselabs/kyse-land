@@ -1,0 +1,5 @@
+# Ignore everything recursively
+# *
+
+# But not the .ts files
+!*.ts
