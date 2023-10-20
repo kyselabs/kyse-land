@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import { useEffect, useState } from 'react'
-import { Button, Input, message } from 'antd'
+import { Button, Input } from 'antd'
 import { useTranslation } from 'react-i18next'
-import useNewsletter from './useNewsletter'
-import useEmail from './useEmail'
+
+import { useEmail, useNewsletter } from './hooks'
 
 const EmailInput = styled(Input)`
     width: 320px;
