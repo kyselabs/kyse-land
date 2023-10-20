@@ -44,7 +44,7 @@ const Container = styled.div`
     padding: 24px 0;
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
-        margin-top: 32px;
+        margin-top: 64px;
     }
 `
 
@@ -53,12 +53,24 @@ const Title = styled.h1`
 `
 
 const Tip = styled.p`
+    display: flex;
+
+    align-items: center;
+    text-align: center;
     height: 32px;
+
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+        width: 340px;
+    }
 `
 
 const Body = styled.div`
     display: flex;
     gap: 12px;
+
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+        margin-top: 14px;
+    }
 `
 
 const Signed = styled.span`
@@ -69,7 +81,7 @@ const Newsletter = () => {
     const { t } = useTranslation()
 
     const { isValid } = useEmail()
-    const { signUp } = useNewsletter(false)
+    const { signUp } = useNewsletter()
 
     const [email, setEmail] = useState('')
     const [signed, setSigned] = useState(false)
