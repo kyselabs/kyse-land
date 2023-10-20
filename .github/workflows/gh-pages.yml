@@ -31,14 +31,8 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v3
 
-            - name: Set up Node
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 18
-                  cache: 'npm'
-
-            - name: Install Pre-dependencies
-              run: npm install -g bun
+            - name: Set up Bun
+              uses: actions/setup-bun@v1
 
             - name: Install dependencies
               run: bun install
