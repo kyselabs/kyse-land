@@ -13,10 +13,14 @@ const Container = styled.div`
         monospace;
     font-size: 14px;
     padding: 10px;
+    overflow: auto;
+    width: 660px;
+    height: 300px;
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
         font-size: 12px;
-        overflow-x: scroll;
+        overflow: scroll;
+        width: 336px;
     }
 `
 

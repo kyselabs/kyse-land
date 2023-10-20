@@ -1,3 +1,4 @@
+import styled from 'styled-components'
 import { Green, White } from './Colors'
 
 interface PackageProps {
@@ -5,14 +6,20 @@ interface PackageProps {
     to: string
 }
 
+const Container = styled.div`
+    display: inline-flex;
+    flex-direction: column;
+    white-space: nowrap;
+`
+
 const Package = ({ from, to }: PackageProps) => {
     return (
-        <div>
+        <Container>
             <div>
                 <Green>[+] Upgrade</Green> <White>{from}</White> <Green>to</Green>{' '}
                 <White>{to}</White>
             </div>
-        </div>
+        </Container>
     )
 }
 

@@ -4,7 +4,12 @@ import Cli from './components/Cli'
 const Container = styled.div`
     grid-area: terminal;
     z-index: 0;
-    margin-top: 64px;
+
+    margin-top: 32px;
+
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+        margin-top: 64px;
+    }
 `
 
 const Terminal = () => {

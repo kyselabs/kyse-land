@@ -36,7 +36,10 @@ const Language = styled(ReactTyped)`
 const Container = styled.div`
     grid-area: intro;
 
+    margin-top: 32px;
+
     @media (max-width: ${({ theme }) => theme.mobile}) {
+        margin-top: 16px;
     }
 `
 
