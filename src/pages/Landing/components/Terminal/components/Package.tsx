@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Green, White } from './Colors'
 
 interface PackageProps {
     from: string
@@ -12,12 +11,22 @@ const Container = styled.div`
     white-space: nowrap;
 `
 
+const Upgrade = styled.span`
+    color: ${({ theme }) => theme.colors.green400};
+`
+
+const PackageName = styled.span`
+    color: ${({ theme }) => theme.colors.white};
+`
+
 const Package = ({ from, to }: PackageProps) => {
     return (
         <Container>
             <div>
-                <Green>[+] Upgrade</Green> <White>{from}</White> <Green>to</Green>{' '}
-                <White>{to}</White>
+                <Upgrade>
+                    [+] Upgrade <PackageName>{from}</PackageName> to
+                </Upgrade>{' '}
+                <PackageName>{to}</PackageName>
             </div>
         </Container>
     )

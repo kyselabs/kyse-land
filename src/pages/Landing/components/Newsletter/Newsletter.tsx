@@ -8,34 +8,34 @@ import { useEmail, useNewsletter } from './hooks'
 
 const EmailInput = styled(Input)`
     width: 320px;
-    background-color: #a29bfe;
+    background-color: ${({ theme }) => theme.colors.purple600};
     border-color: #5040c8;
-    color: #2d3436;
+    color: ${({ theme }) => theme.colors.gray400};
     border-radius: 80px;
     height: 48px;
     padding: 0 1.5rem;
 
     &:disabled:hover {
-        background-color: #dfe6e9;
+        background-color: ${({ theme }) => theme.colors.gray800};
         color: inherit;
     }
 
     &:hover {
-        background-color: #dfe6e9;
-        color: #2d3436;
+        background-color: ${({ theme }) => theme.colors.gray800};
+        color: ${({ theme }) => theme.colors.gray400};
     }
 
     &:focus {
-        background-color: #dfe6e9;
-        color: #2d3436;
+        background-color: ${({ theme }) => theme.colors.gray800};
+        color: ${({ theme }) => theme.colors.gray400};
     }
 
     &:disabled {
-        background-color: #dfe6e9;
+        background-color: ${({ theme }) => theme.colors.gray800};
         opacity: 0.5;
     }
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
         width: 260px;
     }
 `
@@ -44,10 +44,10 @@ const SignUpButton = styled(Button)`
     border-radius: 80px;
     height: 46px;
 
-    background-color: #dfe6e9;
+    background-color: ${({ theme }) => theme.colors.gray800};
 
     &:disabled {
-        background-color: #dfe6e9;
+        background-color: ${({ theme }) => theme.colors.gray800};
         opacity: 0.5;
     }
 `
@@ -64,14 +64,15 @@ const Container = styled.div`
     min-height: 220px;
     margin-top: 64px;
     padding: 24px 0;
+    width: 100dvi;
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
         margin-top: 64px;
     }
 `
 
 const Title = styled.h1`
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
 `
 
 const Tip = styled.p`
@@ -81,7 +82,7 @@ const Tip = styled.p`
     text-align: center;
     height: 32px;
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
         width: 340px;
     }
 `
@@ -90,14 +91,20 @@ const Body = styled.div`
     display: flex;
     gap: 12px;
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
         margin-top: 14px;
     }
 `
 
 const Signed = styled.span`
-    color: #55efc4;
+    color: ${({ theme }) => theme.colors.green600};
 `
+
+const Spinner = styled(Spin)`
+    border-radius: 90px;
+`
+
+const EmojiParty = () => <>&#127881;</>
 
 const Newsletter = () => {
     const { t } = useTranslation()
@@ -120,7 +127,9 @@ const Newsletter = () => {
                 {!signed ? (
                     t('newsletter tip')
                 ) : (
-                    <Signed>&#127881; {t('newsletter signed up')}</Signed>
+                    <Signed>
+                        <EmojiParty /> {t('newsletter signed up')}
+                    </Signed>
                 )}
             </Tip>
 
@@ -147,9 +156,7 @@ const Newsletter = () => {
                         setIsLoading(false)
                     }}
                 >
-                    <Spin spinning={isLoading} style={{ borderRadius: 90 }}>
-                        {t('newsletter sign up')}
-                    </Spin>
+                    <Spinner spinning={isLoading}>{t('newsletter sign up')}</Spinner>
                 </SignUpButton>
             </Body>
         </Container>

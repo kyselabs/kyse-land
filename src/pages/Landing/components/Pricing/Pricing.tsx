@@ -12,7 +12,7 @@ const Container = styled.div`
     z-index: 0;
     margin-top: 64px;
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
         flex-direction: column;
     }
 `

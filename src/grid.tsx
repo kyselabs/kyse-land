@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const StyledGrid = styled.div`
     height: 100dvh;
     display: grid;
-    grid-template-columns: 1fr auto auto 1fr fit-content(1px);
+    grid-template-columns: 1fr auto auto 1fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
         '. navbar navbar .'
@@ -12,9 +12,9 @@ const StyledGrid = styled.div`
         'newsletter newsletter newsletter newsletter'
         '. footer footer .';
 
-    @media only screen and (max-width: ${({ theme }) => theme.mobile}) {
-        grid-template-columns: 24px 1fr 24px;
-        grid-template-rows: auto 1fr auto fit-content(1px);
+    @media only screen and (max-width: ${({ theme }) => theme.devices.mobile}) {
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: auto 1fr auto;
         grid-template-areas:
             '. navbar .'
             '. intro .'
@@ -25,7 +25,7 @@ const StyledGrid = styled.div`
     }
 `
 
-const Grid = ({ children }: any) => {
+const Grid = ({ children }: React.PropsWithChildren) => {
     return <StyledGrid>{children}</StyledGrid>
 }
 

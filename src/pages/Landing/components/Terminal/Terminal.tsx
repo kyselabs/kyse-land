@@ -5,9 +5,13 @@ const Container = styled.div`
     grid-area: terminal;
     z-index: 0;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     margin-top: 32px;
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
         margin-top: 64px;
     }
 `

@@ -8,7 +8,7 @@ interface VulnProps {
 }
 
 const Container = styled.div`
-    color: #636e72;
+    color: ${({ theme }) => theme.colors.gray600};
 `
 
 const Scroller = styled.div`

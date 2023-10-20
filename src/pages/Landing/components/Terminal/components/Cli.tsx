@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Vuln from './Vuln'
 import Package from './Package'
 
-import { Blue, Navy } from './Colors'
-
 const Container = styled.div`
     background-image: linear-gradient(to right bottom, rgb(34, 37, 42), rgb(25, 27, 31));
     border-bottom-left-radius: 8px;
@@ -15,9 +13,8 @@ const Container = styled.div`
     padding: 10px;
     overflow: auto;
     width: 660px;
-    height: 300px;
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
         font-size: 12px;
         overflow: scroll;
         width: 336px;
@@ -32,6 +29,12 @@ const WindowTitlebar = styled.div`
     align-items: center;
     gap: 1px;
     border-radius: 8px 8px 0px 0px;
+
+    width: 660px;
+
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
+        width: 336px;
+    }
 `
 
 const Dot = styled.div`
@@ -67,6 +70,14 @@ const Window = () => {
     )
 }
 
+const VendorName = styled.span`
+    color: ${({ theme }) => theme.colors.blue400};
+`
+
+const VendorPath = styled.span`
+    color: ${({ theme }) => theme.colors.blue600};
+`
+
 const Cli = () => {
     return (
         <>
@@ -76,7 +87,8 @@ const Cli = () => {
                 <br />
                 <br />
                 <p>
-                    Vendor: <Blue>PyPI</Blue> (<Navy>requirements.txt</Navy>)
+                    Vendor: <VendorName>PyPI</VendorName> (<VendorPath>requirements.txt</VendorPath>
+                    )
                 </p>
                 <br />
                 <Package from="cryptography@41.0.2" to="cryptography@41.0.4" />

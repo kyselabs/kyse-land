@@ -15,8 +15,12 @@ const StyledPlan = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
-    background-image: linear-gradient(to bottom right, #2d3436, #636e72);
-    color: #b2bec3;
+    background-image: linear-gradient(
+        to bottom right,
+        ${({ theme }) => theme.colors.gray400},
+        ${({ theme }) => theme.colors.gray600}
+    );
+    color: ${({ theme }) => theme.colors.gray700};
     border-radius: 8px;
     padding: 18px;
     width: 320px;
@@ -26,13 +30,13 @@ const StyledPlan = styled.div`
 const Name = styled.span`
     font-size: 20px;
     font-weight: 400;
-    color: #b2bec3;
+    color: ${({ theme }) => theme.colors.gray700};
 `
 
 const Price = styled.span`
     font-size: 32px;
     font-weight: bold;
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
 `
 
 const Features = styled.div`

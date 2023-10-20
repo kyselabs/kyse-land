@@ -3,8 +3,12 @@ import ReactTyped from 'react-typed'
 import { useTranslation } from 'react-i18next'
 
 const Meaning = styled.h1`
-    color: #e84393;
-    background: linear-gradient(140deg, #e84393, #fab1a0);
+    color: ${({ theme }) => theme.colors.pink400};
+    background: linear-gradient(
+        140deg,
+        ${({ theme }) => theme.colors.pink400},
+        ${({ theme }) => theme.colors.pink800}
+    );
     background-clip: text;
     box-decoration-break: clone;
     -moz-background-clip: text;
@@ -16,7 +20,7 @@ const Meaning = styled.h1`
     font-size: 36px;
     width: 500px;
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
         width: 350px;
         font-size: 30px;
     }
@@ -25,20 +29,22 @@ const Meaning = styled.h1`
 const TypeDiv = styled.div`
     font-size: 22px;
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
     }
 `
 
 const Language = styled(ReactTyped)`
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
 `
 
 const Container = styled.div`
     grid-area: intro;
+    display: flex;
+    flex-direction: column;
 
     margin-top: 32px;
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
         margin-top: 16px;
     }
 `

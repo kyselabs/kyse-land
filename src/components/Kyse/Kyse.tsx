@@ -4,7 +4,7 @@ const Container = styled.span`
     font-family: Unbounded;
     font-size: 32px;
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
     }
 `
 

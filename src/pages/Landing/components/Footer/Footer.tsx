@@ -8,7 +8,7 @@ const Container = styled.div`
     height: 48px;
     margin-top: 64px;
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
         height: 72px;
     }
 `

@@ -10,15 +10,15 @@ const TryForFree = styled.div`
     font-size: 18px;
     width: 220px;
     height: 48px;
-    background-color: #6c5ce7;
+    background-color: ${({ theme }) => theme.colors.purple400};
     border-radius: 24px;
     cursor: pointer;
 
     &:hover {
-        background-color: #5040c8;
+        background-color: ${({ theme }) => theme.colors.purple200};
     }
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
         width: 180px;
         height: 32px;
         font-size: 16px;
@@ -31,11 +31,11 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
     height: 48px;
     padding: 32px 0;
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.devices.mobile}) {
         padding-top: 20px;
     }
 `

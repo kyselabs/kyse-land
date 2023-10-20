@@ -1,0 +1,3 @@
+interface Devices {
+    mobile: string
+}
