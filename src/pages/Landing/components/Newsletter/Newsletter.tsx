@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { useEffect, useState } from 'react'
-import { Button, Input } from 'antd'
+import { Button, Input, Spin } from 'antd'
 import { useTranslation } from 'react-i18next'
 
 import { useEmail, useNewsletter } from './hooks'
@@ -10,10 +10,30 @@ const EmailInput = styled(Input)`
     width: 320px;
     background-color: #a29bfe;
     border-color: #5040c8;
-    color: white;
+    color: #2d3436;
     border-radius: 80px;
     height: 48px;
     padding: 0 1.5rem;
+
+    &:disabled:hover {
+        background-color: #dfe6e9;
+        color: inherit;
+    }
+
+    &:hover {
+        background-color: #dfe6e9;
+        color: #2d3436;
+    }
+
+    &:focus {
+        background-color: #dfe6e9;
+        color: #2d3436;
+    }
+
+    &:disabled {
+        background-color: #dfe6e9;
+        opacity: 0.5;
+    }
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
         width: 260px;
@@ -24,8 +44,10 @@ const SignUpButton = styled(Button)`
     border-radius: 80px;
     height: 46px;
 
+    background-color: #dfe6e9;
+
     &:disabled {
-        background-color: white;
+        background-color: #dfe6e9;
         opacity: 0.5;
     }
 `
@@ -85,6 +107,7 @@ const Newsletter = () => {
 
     const [email, setEmail] = useState('')
     const [signed, setSigned] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         if (email) setSigned(false)
@@ -106,20 +129,27 @@ const Newsletter = () => {
                     type="email"
                     size="large"
                     value={email}
+                    disabled={isLoading}
                     placeholder={t('newsletter your email')}
                     onChange={({ target }) => setEmail(target.value)}
                 />
                 <SignUpButton
                     type="default"
-                    disabled={!isValid(email)}
+                    disabled={isLoading || !isValid(email)}
                     onClick={async () => {
+                        setIsLoading(true)
+
                         if (await signUp(email)) {
                             setEmail('')
                             setSigned(true)
                         }
+
+                        setIsLoading(false)
                     }}
                 >
-                    {t('newsletter sign up')}
+                    <Spin spinning={isLoading} style={{ borderRadius: 90 }}>
+                        {t('newsletter sign up')}
+                    </Spin>
                 </SignUpButton>
             </Body>
         </Container>
