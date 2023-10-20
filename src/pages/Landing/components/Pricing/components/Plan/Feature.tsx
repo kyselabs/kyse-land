@@ -22,13 +22,13 @@ const FeaturePackage = (value: string): FeatureDict => ({
 
 const FeatureContainer = (value: string): FeatureDict => ({
     icon: <DockerIcon size={22} color="#e17055" />,
-    name: t('pricing packages'),
+    name: t('pricing containers'),
     text: value,
 })
 
 const FeatureSource = (value: string): FeatureDict => ({
     icon: <SourceIcon size={22} color="#00cec9" />,
-    name: t('pricing packages'),
+    name: t('pricing source'),
     text: value,
     disabled: true,
 })

@@ -23,6 +23,11 @@ const EmailInput = styled(Input)`
 const SignUpButton = styled(Button)`
     border-radius: 80px;
     height: 46px;
+
+    &:disabled {
+        background-color: white;
+        opacity: 0.5;
+    }
 `
 
 const Container = styled.div`

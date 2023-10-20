@@ -12,7 +12,7 @@ i18n.use(initReactI18next).init({
 
                 'pricing packages': 'Análise de Pacotes',
                 'pricing source': 'Análise de Código-Fonte',
-                'pricing containers': 'Análise de Contâiners',
+                'pricing containers': 'Análise de Contêineres',
                 'pricing free': 'Grátis',
                 'pricing buy': 'Comprar',
                 'pricing contact': 'Entrar em contato',
