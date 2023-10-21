@@ -37,6 +37,7 @@ const Pricing = () => {
                 ribbon={t('pricing popular')}
                 name="Team"
                 price="R$ 79"
+                perDev={t('pricing per dev')}
                 buttonText={t('pricing buy')}
                 features={[
                     FeaturePackage(t('pricing unlimited')),

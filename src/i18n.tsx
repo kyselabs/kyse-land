@@ -10,6 +10,7 @@ i18n.use(initReactI18next).init({
                 analyzer: 'Analisa pacotes de',
                 'try for free': 'Avaliar gratuitamente',
 
+                'pricing per dev': 'Por usuário/mês',
                 'pricing packages': 'Análise de Pacotes',
                 'pricing source': 'Análise de Código-Fonte',
                 'pricing containers': 'Análise de Contêineres',

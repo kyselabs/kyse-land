@@ -7,6 +7,7 @@ interface PlanProps {
     ribbon?: string
     name: string
     price: string
+    perDev?: string
     buttonText: string
     features: FeatureDict[]
 }
@@ -39,6 +40,12 @@ const Price = styled.span`
     color: ${({ theme }) => theme.colors.white};
 `
 
+const PerDev = styled.span`
+    font-size: 18px;
+    color: ${({ theme }) => theme.colors.gray700};
+    margin-left: 4px;
+`
+
 const Features = styled.div`
     flex: 1;
     display: flex;
@@ -47,11 +54,13 @@ const Features = styled.div`
     margin-top: 24px;
 `
 
-const Plan = ({ ribbon, name, price, buttonText, features }: PlanProps) => {
+const Plan = ({ ribbon, name, price, perDev, buttonText, features }: PlanProps) => {
     const component = (
         <StyledPlan>
             <Name>{name}</Name>
-            <Price>{price}</Price>
+            <Price>
+                {price} <PerDev>{perDev}</PerDev>
+            </Price>
             <Features>
                 {features.map(({ icon, name, text, disabled }, i) => (
                     <Feature key={i} disabled={disabled} icon={icon} name={name} value={text} />
