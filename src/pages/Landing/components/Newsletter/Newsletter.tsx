@@ -120,6 +120,17 @@ const Newsletter = () => {
         if (email) setSigned(false)
     }, [email])
 
+    const onSubmit = async () => {
+        setIsLoading(true)
+
+        if (await signUp(email)) {
+            setEmail('')
+            setSigned(true)
+        }
+
+        setIsLoading(false)
+    }
+
     return (
         <Container>
             <Title>{t('newsletter')}</Title>
@@ -141,20 +152,12 @@ const Newsletter = () => {
                     disabled={isLoading}
                     placeholder={t('newsletter your email')}
                     onChange={({ target }) => setEmail(target.value)}
+                    onKeyUp={({ key }) => key === 'Enter' && isValid(email) && onSubmit()}
                 />
                 <SignUpButton
                     type="default"
                     disabled={isLoading || !isValid(email)}
-                    onClick={async () => {
-                        setIsLoading(true)
-
-                        if (await signUp(email)) {
-                            setEmail('')
-                            setSigned(true)
-                        }
-
-                        setIsLoading(false)
-                    }}
+                    onClick={onSubmit}
                 >
                     <Spinner spinning={isLoading}>{t('newsletter sign up')}</Spinner>
                 </SignUpButton>
